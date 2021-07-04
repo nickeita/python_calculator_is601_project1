@@ -10,3 +10,6 @@ class Calculator:
     def sub(a, b):
         return b - a
 
+    @staticmethod
+    def mul(a, b):
+        return a * b

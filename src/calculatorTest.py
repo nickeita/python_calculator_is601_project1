@@ -29,6 +29,15 @@ class CalculatorTest(unittest.TestCase):
                 c = row["Result"]
                 self.assertEqual(self.calc.sub(int(a), int(b)), int(c))
 
+    def test_multiplication(self):
+        with open('src/Unit Test Multiplication.csv') as multiplication_file:
+            multiplication_data = DictReader(multiplication_file)
+            for row in multiplication_data:
+                a = row["Value 1"]
+                b = row["Value 2"]
+                c = row["Result"]
+                self.assertEqual(self.calc.mul(int(a), int(b)), int(c))
+
 
 if __name__ == '__main__':
     unittest.main()
