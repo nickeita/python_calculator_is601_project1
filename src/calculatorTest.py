@@ -38,6 +38,15 @@ class CalculatorTest(unittest.TestCase):
                 c = row["Result"]
                 self.assertEqual(self.calc.mul(int(a), int(b)), int(c))
 
+    def test_division(self):
+        with open('src/Unit Test Division.csv') as division_file:
+            division_data = DictReader(division_file)
+            for row in division_data:
+                a = row["Value 1"]
+                b = row["Value 2"]
+                c = row["Result"]
+                self.assertAlmostEqual(self.calc.div(int(a), int(b)), float(c))
+
 
 if __name__ == '__main__':
     unittest.main()
