@@ -47,6 +47,14 @@ class CalculatorTest(unittest.TestCase):
                 c = row["Result"]
                 self.assertAlmostEqual(self.calc.div(int(a), int(b)), float(c))
 
+    def test_square(self):
+        with open('src/Unit Test Square.csv') as square_file:
+            square_data = DictReader(square_file)
+            for row in square_data:
+                a = row["Value 1"]
+                b = row["Result"]
+                self.assertAlmostEqual(self.calc.sqr(int(a)), int(b))
+
 
 if __name__ == '__main__':
     unittest.main()

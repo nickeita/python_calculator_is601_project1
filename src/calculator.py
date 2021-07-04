@@ -20,3 +20,7 @@ class Calculator:
             return '###'
         else:
             return float(b / a)
+
+    @staticmethod
+    def sqr(a):
+        return a * a
