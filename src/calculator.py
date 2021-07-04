@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 class Calculator:
     def __init__(self):
         pass
@@ -24,3 +27,10 @@ class Calculator:
     @staticmethod
     def sqr(a):
         return a * a
+
+    @staticmethod
+    def sqroot(a):
+        if a < 0:
+            return '###'
+        else:
+            return float(sqrt(a))
