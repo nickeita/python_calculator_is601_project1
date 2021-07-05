@@ -1,5 +1,5 @@
 import unittest
-from csv import DictReader
+from csv import *
 from calculator import Calculator
 
 
@@ -11,57 +11,48 @@ class CalculatorTest(unittest.TestCase):
     def test_instantiate_object(self):
         self.assertIsInstance(self.calc, Calculator)
 
+    def run_test(self, filepath, method):
+        self.method = method
+        with open(filepath) as data_file:
+            test_data = DictReader(data_file)
+            for row in test_data:
+                val1 = row["Value 1"]
+                try:
+                    val2 = row["Value 2"]
+                except:
+                    pass
+                result = row["Result"]
+                if self.method == 'add':
+                    self.assertEqual(self.calc.add(int(val1), int(val2)), int(result))
+                if self.method == 'sub':
+                    self.assertEqual(self.calc.sub(int(val1), int(val2)), int(result))
+                if self.method == 'mul':
+                    self.assertEqual(self.calc.mul(int(val1), int(val2)), int(result))
+                if self.method == 'div':
+                    self.assertAlmostEqual(
+                        self.calc.div(int(val1), int(val2)), float(result))
+                if self.method == 'sqr':
+                    self.assertAlmostEqual(self.calc.sqr(int(val1)), int(result))
+                if self.method == 'sqroot':
+                    self.assertAlmostEqual(self.calc.sqroot(int(val1)), float(result))
+
     def test_addition(self):
-        with open('src/Unit Test Addition.csv') as addition_file:
-            addition_data = DictReader(addition_file)
-            for row in addition_data:
-                a = row["Value 1"]
-                b = row["Value 2"]
-                c = row["Result"]
-                self.assertEqual(self.calc.add(int(a), int(b)), int(c))
+        self.run_test('test-data/Unit Test Addition.csv', 'add')
 
     def test_subtraction(self):
-        with open('src/Unit Test Subtraction.csv') as subtraction_file:
-            subtraction_data = DictReader(subtraction_file)
-            for row in subtraction_data:
-                a = row["Value 1"]
-                b = row["Value 2"]
-                c = row["Result"]
-                self.assertEqual(self.calc.sub(int(a), int(b)), int(c))
+        self.run_test('test-data/Unit Test Subtraction.csv', 'sub')
 
     def test_multiplication(self):
-        with open('src/Unit Test Multiplication.csv') as multiplication_file:
-            multiplication_data = DictReader(multiplication_file)
-            for row in multiplication_data:
-                a = row["Value 1"]
-                b = row["Value 2"]
-                c = row["Result"]
-                self.assertEqual(self.calc.mul(int(a), int(b)), int(c))
+        self.run_test('test-data/Unit Test Multiplication.csv', 'mul')
 
     def test_division(self):
-        with open('src/Unit Test Division.csv') as division_file:
-            division_data = DictReader(division_file)
-            for row in division_data:
-                a = row["Value 1"]
-                b = row["Value 2"]
-                c = row["Result"]
-                self.assertAlmostEqual(self.calc.div(int(a), int(b)), float(c))
+        self.run_test('test-data/Unit Test Division.csv', 'div')
 
     def test_square(self):
-        with open('src/Unit Test Square.csv') as square_file:
-            square_data = DictReader(square_file)
-            for row in square_data:
-                a = row["Value 1"]
-                b = row["Result"]
-                self.assertAlmostEqual(self.calc.sqr(int(a)), int(b))
+        self.run_test('test-data/Unit Test Square.csv', 'sqr')
 
     def test_square_root(self):
-        with open('src/Unit Test Square Root.csv') as square_root_file:
-            square_root_data = DictReader(square_root_file)
-            for row in square_root_data:
-                a = row["Value 1"]
-                b = row["Result"]
-                self.assertAlmostEqual(self.calc.sqroot(int(a)), float(b))
+        self.run_test('test-data/Unit Test Square Root.csv', 'sqroot')
 
 
 if __name__ == '__main__':
