@@ -37,22 +37,22 @@ class CalculatorTest(unittest.TestCase):
                     self.assertAlmostEqual(self.calc.sqroot(int(val1)), float(result))
 
     def test_addition(self):
-        self.run_test('test-data/Unit Test Addition.csv', 'add')
+        self.run_test('src/test-data/Unit Test Addition.csv', 'add')
 
     def test_subtraction(self):
-        self.run_test('test-data/Unit Test Subtraction.csv', 'sub')
+        self.run_test('src/test-data/Unit Test Subtraction.csv', 'sub')
 
     def test_multiplication(self):
-        self.run_test('test-data/Unit Test Multiplication.csv', 'mul')
+        self.run_test('src/test-data/Unit Test Multiplication.csv', 'mul')
 
     def test_division(self):
-        self.run_test('test-data/Unit Test Division.csv', 'div')
+        self.run_test('src/test-data/Unit Test Division.csv', 'div')
 
     def test_square(self):
-        self.run_test('test-data/Unit Test Square.csv', 'sqr')
+        self.run_test('src/test-data/Unit Test Square.csv', 'sqr')
 
     def test_square_root(self):
-        self.run_test('test-data/Unit Test Square Root.csv', 'sqroot')
+        self.run_test('src/test-data/Unit Test Square Root.csv', 'sqroot')
 
 
 if __name__ == '__main__':
