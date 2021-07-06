@@ -22,7 +22,7 @@ class Calculator:
         if a == 0:
             return '###'
         else:
-            return float(b / a)
+            return b / a
 
     @staticmethod
     def sqr(a):
@@ -33,4 +33,4 @@ class Calculator:
         if a < 0:
             return '###'
         else:
-            return float(sqrt(a))
+            return sqrt(a)

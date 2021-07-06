@@ -1,5 +1,5 @@
 import unittest
-from csv import *
+from csv import DictReader
 from calculator import Calculator
 
 
