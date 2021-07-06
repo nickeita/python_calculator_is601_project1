@@ -4,10 +4,9 @@ A basic python calculator with unit testing framework implemented
 [Python Documentation - Unit testing framework](https://docs.python.org/3/library/unittest.html)
 
 ## Technology Used
-  * Linux Kernel Verion: 5.10.0-8-amd64
   * Debian GNU/Linux 11
-  * PyCharm 2021.1.3 (Professional Edition)
-  * Docker version 20.10.7
+  * PyCharm (Professional Edition)
+  * Docker
 
 ## Prequisites For Running The Python Program In This Repository
 The following should be installed on your machine:
